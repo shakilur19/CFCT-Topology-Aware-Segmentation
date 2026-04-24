@@ -1,0 +1,16 @@
+dataset: HAM_p2
+root: data
+input_size: 352
+batch_size: 20
+num_epochs: 50
+learning_rate: 0.0001
+num_workers_train: 8
+num_workers_val: 4
+backbone_name: convnext_base
+out_channels: 32
+pretrained: true
+snapshot_root: ./Snapshots/ConvNeXt_v3
+model_name: ConvNeXt_v3
+edge_weight: 0.2
+topology_weight: 0.2
+seed: 42
