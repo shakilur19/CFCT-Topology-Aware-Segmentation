@@ -2,11 +2,13 @@
 
 This repository contains the open-source PyTorch implementation for a skin lesion segmentation pipeline based on a ConvNeXt encoder, an FPN-style decoder, CBAM attention, deep supervision, an edge branch, and a topology-aware loss component.
 
-The code is refactored from the original training and testing scripts into reusable modules while preserving the original pipeline and fundamental training strategy.
+## 📄 Abstract
 
-## Paper Abstract
+In this paper, we present a novel hybrid deep learning framework, **CFCT**, for skin lesion segmentation. Our method utilizes a **ConvNeXt-based backbone** for robust feature extraction. The framework incorporates a **Feature Pyramid Network (FPN)** decoder, which is further enhanced by **Convolutional Block Attention Modules (CBAM)** and an auxiliary **edge detection branch**.
 
-Accurate skin lesion segmentation is an important step for computer-aided dermatological image analysis, but lesion boundaries, shape irregularity, and topology-related structure make the task challenging. This work presents **CFCT**, a ConvNeXt-based segmentation framework that combines hierarchical feature extraction with a feature pyramid decoder, convolutional block attention, deep supervision, edge-aware learning, and a topology-enhanced objective. The ConvNeXt backbone captures multi-level visual representations, while the FPN decoder integrates features across scales to recover fine lesion structure. CBAM modules refine channel and spatial responses, and the edge branch encourages sharper lesion boundaries. To further improve structural consistency, the training objective combines segmentation losses with a topological penalty computed from cubical-complex persistence. Experiments on dermoscopic lesion datasets evaluate segmentation quality using IoU, Dice score, and pixel accuracy, showing that the proposed design improves boundary-aware and structure-preserving lesion segmentation.
+We integrate **multi-scale deep supervision** and leverage a composite loss function that combines **Dice-BCE**, **edge-aware**, and **topological (Betti number difference)** penalties. This design improves both **boundary precision** and **topological correctness** of segmentation outputs.
+
+We conducted extensive experiments on widely used benchmark datasets, including **HAM10000** and **ISIC 2018**. The results demonstrate that our approach **outperforms state-of-the-art methods**, highlighting the effectiveness and reliability of the proposed framework.
 
 ## Folder Structure
 
@@ -79,8 +81,8 @@ topology_weight: 0.2
 ## Installation
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/shakilur19/CFCT-Topology-Aware-Segmentation.git
+cd CFCT-Topology-Aware-Segmentation
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
